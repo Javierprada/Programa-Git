@@ -1,0 +1,177 @@
+.movie-details-container {
+  position: relative; /* Para que el overlay y el contenido se posicionen respecto a él */
+  width: 100%; /* El contenedor ocupará el 100% del ancho disponible de su elemento padre.*/
+  height: 100vh; /* Ocupa al menos la altura completa de la ventana */
+  overflow: hidden; /* Oculta cualquier contenido que se desborde fuera de los límites del contenedor, evitando barras de desplazamiento.*/
+  display: flex; /* Establece el contenedor como un flex container, permitiendo el uso de propiedades Flexbox para sus hijos directos.*/
+  flex-direction: column; /* Los elementos flex (hijos directos) dentro del contenedor se apilarán verticalmente, de arriba hacia abajo.*/
+  align-items: center; /* Centra el contenido verticalmente */
+  justify-content: space-between; /* Distribuye el espacio entre los elementos flex a lo largo del eje principal (vertical en este caso), colocando el primer elemento al inicio, el último al final, y espaciando equitativamente los restantes.*/
+  padding-top: 5vh; /*Añade un relleno (espacio interno) de 5% de la altura del viewport en la parte superior del contenedor.*/
+  padding-bottom: 5vh; /* Añade un relleno (espacio interno) de 5% de la altura del viewport en la parte inferior del contenedor.*/
+  
+  
+  
+  
+}
+
+
+
+.background-video{
+  position: fixed; /* se posiciona en relación con el área visible del navegador */
+  top: 0; /* Alinea con el borde superior del viewport. */
+  left: 0; /* Alinea con el borde izquierdo del viewport. */
+  width: 100%; /* Ocupa el 100% del ancho del viewport. */
+  height: 100%;  /* Ocupa el 100% del alto del viewport. */
+  object-fit: cover;  /* El contenido se hará lo suficientemente grande para cubrir el contenedor por completo */
+  object-position: center; /* Centra el video, lo que se recorta son los bordes */
+  z-index: -1; /* Envía el video al fondo si hay otros elementos */
+  
+}
+
+
+
+
+
+.overlay {
+  position: fixed; /* se posiciona en relación con el área visible del navegador */
+  top: 0; /* Alinea con el borde superior del viewport. */
+  left: 0; /* Alinea con el borde izquierdo del viewport. */
+  width: 100%; /* Ocupa el 100% del ancho del viewport. */
+  height: 100%; /* Ocupa el 100% de la altura del viewport. */
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo negro semitransparente (70% opacidad). */
+  z-index: 1; /* Se sitúa sobre el video de fondo. */
+}
+
+.content {
+  position: relative; /* Permite posicionar elementos hijos con 'absolute' o 'fixed', y usar 'z-index'. */
+  z-index: 2; /* Asegura que el contenido esté sobre el overlay */
+  max-width: 800px; /* Ancho máximo para el texto */
+  margin: 50px auto; /* Centra el bloque .content horizontalmente */
+  text-align: center; /* Centra el texto y contenido en línea dentro de este contenedor. */
+  color: rgb(215, 14, 142); /* Color del texto */
+  text-transform: uppercase; /* Convertir a mayúsculas */
+  
+}
+
+.content h1 {
+  font-size: 3rem; /* Tamaño del título */  
+  text-shadow: 2px 2px 4px rgba(33, 229, 219, 1.0); /* Sombra para el título */
+  padding-top: 3px; /* Añade un relleno (espacio interno) de 3px en la parte superior. */
+  margin-bottom: 180px; /* Establece un margen inferior para el título. */
+  margin-top: 10px;
+}
+
+.metadata {
+  font-size: 1.2rem; /* Tamaño de fuente del título. */
+  margin-bottom: 10rem; /* Margen inferior para los metadatos. */
+  display: flex; /* Para alinear los elementos uno al lado del otro */
+  gap: 0.8rem; /* Espacio entre los elementos de metadatos */
+  opacity: 0.8; /* Ligeramente transparente */
+  width: fit-content; /* El ancho se ajusta al contenido. */
+  margin: 0 auto; /* Centra el elemento horizontalmente. */
+  
+}
+
+
+
+.buttons {
+  display: flex;
+  gap: 1rem; /* Espacio entre los botones */
+  text-align: center;
+  margin-top: 360px; /*Margen arriba*/
+  justify-content: center; /* Centra los botones*/
+}
+
+
+.btn-more-register {
+  background-color: rgb(49, 181, 224);
+  color: rgb(215, 14, 142);
+  border: 2px solid rgb(32, 254, 77);
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-more-register:hover{
+  fill: rgb(0, 255, 242);
+}
+
+.btn-more-register:hover {
+  background-color: rgb(215, 14, 142); /*fondo al hacer hover */
+  color: rgb(0, 255, 242); /* al hacer hover! */
+  border-color: rgb(32, 250, 254); /* Borde al hacer hover */
+}
+
+
+
+.iniciar-sesión {
+  background-color: rgb(49, 181, 224);
+  color: rgb(215, 14, 142);
+  border: 2px solid rgb(32, 254, 77);
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+
+.iniciar-sesión:hover svg {
+  fill: rgb(0, 255, 242);
+  
+}
+
+.iniciar-sesión:hover {
+    background-color: rgb(215, 14, 142); /*fondo al hacer hover */
+    color: rgb(0, 255, 242); /* al hacer hover! */
+    border-color: rgb(32, 250, 254); /* Borde al hacer hover */
+   
+}
+
+
+
+
+
+
+/* Para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .movie-details-container {
+    padding: 1rem;
+    align-items: flex-end; /* Alinea el contenido abajo en móviles */
+    text-align: center;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .content h1 {
+    font-size: 2.5rem;
+  }
+
+  .metadata,
+  .description {
+    font-size: 1rem;
+  }
+
+  .buttons {
+    flex-direction: column; /* Apila los botones en móviles */
+  }
+
+  .iniciar-sesión,
+  .btn-more-register{
+    width: 100%;
+    justify-content: center; /* Centra el texto y el icono en botones apilados */
+  }
+}
